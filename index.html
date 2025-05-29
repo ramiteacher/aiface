@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 얼평 | 내 외모점수와 관상을 확인해 보세요</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-screen" id="main-screen">
+            <h1 class="title">AI 얼평</h1>
+            <p class="subtitle">내 외모점수와 관상을 확인해 보세요</p>
+            
+            <div class="illustration-container">
+                <img src="images/character.png" alt="캐릭터 일러스트" class="character-img">
+            </div>
+            
+            <p class="notice">*업로드한 이미지는 랭킹 보드에 등록하기 전까지 별도로 저장되지 않습니다</p>
+            
+            <div class="button-container">
+                <label for="file-upload" class="upload-btn">
+                    사진 올리기 <span class="count">5회 남음</span>
+                    <input type="file" id="file-upload" accept="image/*" hidden>
+                </label>
+                <button class="ranking-btn"><i class="fas fa-trophy"></i> 랭킹 보기</button>
+            </div>
+            
+            <div class="login-container">
+                <p>회원이신가요? <a href="#" class="login-link">로그인하기</a></p>
+            </div>
+        </div>
+        
+        <div class="loading-screen" id="loading-screen" style="display: none;">
+            <div class="loading-animation">
+                <div class="robot">
+                    <div class="robot-head">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="robot-body">
+                        <div class="arm left"></div>
+                        <div class="arm right"></div>
+                    </div>
+                </div>
+                <p class="loading-text">AI가 분석 중입니다...</p>
+            </div>
+        </div>
+        
+        <div class="result-screen" id="result-screen" style="display: none;">
+            <div class="result-header">
+                <div class="user-photo-container">
+                    <img src="" alt="업로드된 사진" id="user-photo" class="user-photo">
+                </div>
+                
+                <div class="score-container">
+                    <h2 class="score"><span id="score-value">6.1</span>점 <span class="total">/10점</span></h2>
+                </div>
+                
+                <div class="character-description">
+                    <div class="character-icon">
+                        <img src="images/character-icon.png" alt="캐릭터 아이콘" class="character-icon-img">
+                    </div>
+                    <div class="description-text">
+                        <p id="character-description">교복 입고 편의점 알바생상</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="site-info">
+                <p>구글검색 AI 얼굴평가 <img src="images/character-small.png" alt="작은 캐릭터" class="small-character"> https://ai-face.me</p>
+            </div>
+            
+            <div class="rank-container">
+                <p class="rank-title">총 외모 순위</p>
+                <h3 class="rank-value"><span id="rank-number">3,313,041</span>위 <span class="total-rank">/ 8,176,432</span> <span class="rank-percent">상위 41%</span></h3>
+                
+                <div class="rank-bar">
+                    <div class="rank-progress">
+                        <div class="rank-marker"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <p class="stat-title">예상 나이</p>
+                    <h3 class="stat-value" id="age-value">20</h3>
+                    <p class="stat-description">대학생 느낌 물씬</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-title">실면서 번호 따인 횟수</p>
+                    <h3 class="stat-value" id="phone-value">2</h3>
+                    <p class="stat-description">친구 대리로 따임</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-title">학창시절 고백 받은 횟수</p>
+                    <h3 class="stat-value" id="confession-value">5</h3>
+                    <p class="stat-description">주변 여친구들로부터</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-title">인스타 팔로워 수</p>
+                    <h3 class="stat-value" id="follower-value">300</h3>
+                    <p class="stat-description">신중한 사진 업로드</p>
+                </div>
+            </div>
+            
+            <p class="notice">*업로드한 이미지는 랭킹 보드에 등록하기 전까지 별도로 저장되지 않습니다</p>
+            
+            <div class="button-container">
+                <button class="ranking-btn dark"><i class="fas fa-trophy"></i> 랭킹 보기</button>
+                <button class="retry-btn" id="retry-btn">다시하기 <span class="count">4회 남음</span></button>
+                <button class="share-btn" id="share-btn">링크 공유하기</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="share-toast">
+        <p>링크가 복사되었습니다!</p>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
